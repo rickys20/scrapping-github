@@ -26,7 +26,7 @@ for index, row in data.iterrows():
         issue_number = title_text.split(' · ')[1].split(' ')[1]
         title_issue = title_text.split(' · ')[0]
 
-        # find author
+        # find author 
         author_tag = soup.find('a', class_='author Link--primary text-bold css-overflow-wrap-anywhere')
         username = author_tag.get_text(strip=True)
         # print(username)
@@ -48,28 +48,3 @@ for index, row in data.iterrows():
         print(date_only)
     
     data.to_excel(excel_file_path, index=False)
-
-
-
-
-
-# Baca isi file HTML
-# file_path = "Geometry.html"
-# with open(file_path, "r", encoding="utf-8") as file:
-#     html_content = file.read()
-
-# # Lakukan web scraping menggunakan BeautifulSoup
-# soup = BeautifulSoup(html_content, "html.parser")
-# author_link = soup.find("a", {"class": "author"})
-# content_tag = soup.find('p', dir='auto')
-
-# # Cek apakah data "fefespn" berhasil ditemukan
-# if author_link:
-#     data = {
-#         "username": author_link.text.strip(),
-#         "content": content_tag.text.strip(),
-#         "profile_url": "https://github.com" + author_link["href"]
-#     }
-#     print(data)
-# else:
-#     print("Data fefespn tidak ditemukan.")
